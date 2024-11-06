@@ -4,7 +4,6 @@ import movies from './data.js';
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
   let result = array.map((array) => array.director);
-  // console.log('EXERCICE 1 ->', result);
   return result;
 }
 
@@ -18,7 +17,18 @@ function getMoviesFromDirector(array, director) {
 console.log(getMoviesFromDirector(movies, 'Clint Eastwood'));
 
 // Exercise 3: Calculate the average of the films of a given director.
-function moviesAverageOfDirector(array, director) {}
+function moviesAverageOfDirector(array, director) {
+  const moviesDirector = getMoviesFromDirector(array, director);
+  const totalScore = moviesDirector.reduce(
+    (director, movie) => director + movie.score,
+    0
+  );
+
+  const getAverage = totalScore / moviesDirector.length;
+  return Number(getAverage.toFixed(2));
+}
+
+console.log(moviesAverageOfDirector(movies, 'Clint Eastwood'));
 
 // Exercise 4:  Alphabetic order by title
 function orderAlphabetically(array) {}
