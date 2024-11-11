@@ -31,7 +31,14 @@ function moviesAverageOfDirector(array, director) {
 console.log(moviesAverageOfDirector(movies, 'Clint Eastwood'));
 
 // Exercise 4:  Alphabetic order by title
-function orderAlphabetically(array) {}
+function orderAlphabetically(array) {
+  const titleMovies = array.map((array) => array.title);
+  const orderTitles = titleMovies.sort();
+
+  return orderTitles.slice(0, 20);
+}
+
+console.log(orderAlphabetically(movies));
 
 // Exercise 5: Order by year, ascending
 function orderByYear() {}
