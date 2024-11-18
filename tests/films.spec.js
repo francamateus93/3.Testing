@@ -1,4 +1,4 @@
-const movies = require('../src/data');
+const movies = require('../src/data.js');
 const {
   getAllDirectors,
   getMoviesFromDirector,
@@ -298,8 +298,26 @@ describe('Function "orderByYear"', () => {
 // Exercise 6
 // YOUR CODE HERE. Test moviesAverageByCategory()
 describe('Function "moviesAverageByCategory"', () => {
-  it('ADD YOUR CODE IN films.spec.js file', () => {
-    expect(typeof hoursToMinutes).toBe('coffee');
+  it('should be declared', () => {
+    expect(typeof moviesAverageByCategory).toBe('function');
+  });
+  it('should return a number', () => {
+    expect(typeof moviesAverageByCategory(movies, 'Drama')).toBe('number');
+  });
+  it('should return the correct average score for "Drama"', () => {
+    expect(moviesAverageByCategory(movies, 'Drama')).toBe(9.04);
+  });
+
+  it('should return the correct average score for "Action"', () => {
+    expect(moviesAverageByCategory(movies, 'Action')).toBe(8.6);
+  });
+
+  it('should return 0 for a genre with no movies', () => {
+    expect(moviesAverageByCategory(movies, 'Horror')).toBe(0);
+  });
+
+  it('should handle an empty array input', () => {
+    expect(moviesAverageByCategory([], 'Drama')).toBe(0);
   });
 });
 
